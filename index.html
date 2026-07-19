@@ -2,61 +2,69 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мои документы UAS</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сертификаты UAS</title>
+
 <style>
 body{
-    font-family:Arial,sans-serif;
-    background:#f4f4f4;
     margin:0;
-    padding:30px;
+    font-family:Arial,sans-serif;
+    background:#eceff1;
+}
+header{
+    background:#0d47a1;
+    color:#fff;
+    padding:18px;
     text-align:center;
 }
-.card{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-iframe{
-    width:100%;
-    height:700px;
-    border:none;
-    margin-top:20px;
+.menu{
+    text-align:center;
+    padding:15px;
 }
 button{
     padding:12px 20px;
-    margin:10px;
+    margin:8px;
     border:none;
     border-radius:8px;
-    background:#0066cc;
+    background:#1565c0;
     color:white;
     cursor:pointer;
+    font-size:16px;
+}
+button:hover{
+    background:#0d47a1;
+}
+iframe{
+    width:100%;
+    height:88vh;
+    border:none;
 }
 </style>
+
 </head>
 <body>
 
-<div class="card">
+<header>
 <h2>Документы оператора БПЛА</h2>
+</header>
 
-<button onclick="showDoc('potwierdzenie_rejestracji_operatora.pdf')">
+<div class="menu">
+
+<button onclick="openPDF('potwierdzenie_rejestracji_operatora.pdf')">
 Регистрация оператора
 </button>
 
-<button onclick="showDoc('potwierdzenie_zdania_egzaminu_A1A3.pdf')">
+<button onclick="openPDF('potwierdzenie_zdania_egzaminu_A1A3.pdf')">
 Сертификат A1/A3
 </button>
 
-<iframe id="viewer"></iframe>
-
 </div>
 
+<iframe id="viewer"></iframe>
+
 <script>
-function showDoc(file){
-    document.getElementById("viewer").src=file;
+function openPDF(file){
+    document.getElementById("viewer").src=file + "#toolbar=0&navpanes=0";
 }
 </script>
 
